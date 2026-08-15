@@ -1,386 +1,1212 @@
 <!doctype html>
-<html lang="zh">
+<html lang="zh-CN">
+
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>葵×粥粥的小窝</title>
+
+<meta
+  name="viewport"
+  content="width=device-width,
+  initial-scale=1,
+  maximum-scale=1,
+  viewport-fit=cover"
+>
+
+<title>葵 × 粥粥 ♡</title>
+
+<!-- iPhone 添加到主屏幕后以 App 形式打开 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="葵×粥粥">
+
+<meta name="theme-color" content="#fff7f7">
+
+<!-- 萌萌小咪图标 -->
+<link
+  rel="icon"
+  href="data:image/svg+xml,
+  %3Csvg xmlns='http://www.w3.org/2000/svg'
+  viewBox='0 0 512 512'%3E
+  %3Crect width='512' height='512' rx='120'
+  fill='%23f4d8dc'/%3E
+  %3Ccircle cx='256' cy='275' r='155'
+  fill='%23fff9f8'/%3E
+  %3Cpath d='M140 190L170 80L230 155'
+  fill='%23fff9f8'/%3E
+  %3Cpath d='M372 190L342 80L282 155'
+  fill='%23fff9f8'/%3E
+  %3Ccircle cx='205' cy='270' r='15'
+  fill='%23644f53'/%3E
+  %3Ccircle cx='307' cy='270' r='15'
+  fill='%23644f53'/%3E
+  %3Cpath d='M246 305Q256 315 266 305'
+  stroke='%23644f53'
+  stroke-width='10'
+  fill='none'
+  stroke-linecap='round'/%3E
+  %3Cpath d='M256 316Q220 350 190 325'
+  stroke='%23644f53'
+  stroke-width='9'
+  fill='none'
+  stroke-linecap='round'/%3E
+  %3Cpath d='M256 316Q292 350 322 325'
+  stroke='%23644f53'
+  stroke-width='9'
+  fill='none'
+  stroke-linecap='round'/%3E
+  %3Ctext x='256' y='450'
+  text-anchor='middle'
+  font-size='54'%3E♡%3C/text%3E
+  %3C/svg%3E"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="data:image/svg+xml,
+  %3Csvg xmlns='http://www.w3.org/2000/svg'
+  viewBox='0 0 512 512'%3E
+  %3Crect width='512' height='512' rx='110'
+  fill='%23f4d8dc'/%3E
+  %3Ccircle cx='256' cy='270' r='150'
+  fill='%23fffafa'/%3E
+  %3Cpath d='M145 190L175 85L228 155'
+  fill='%23fffafa'/%3E
+  %3Cpath d='M367 190L337 85L284 155'
+  fill='%23fffafa'/%3E
+  %3Ccircle cx='205' cy='270' r='14'
+  fill='%23604d51'/%3E
+  %3Ccircle cx='307' cy='270' r='14'
+  fill='%23604d51'/%3E
+  %3Cpath d='M246 305Q256 315 266 305'
+  stroke='%23604d51'
+  stroke-width='10'
+  fill='none'
+  stroke-linecap='round'/%3E
+  %3Cpath d='M256 317Q225 345 196 326'
+  stroke='%23604d51'
+  stroke-width='9'
+  fill='none'
+  stroke-linecap='round'/%3E
+  %3Cpath d='M256 317Q287 345 316 326'
+  stroke='%23604d51'
+  stroke-width='9'
+  fill='none'
+  stroke-linecap='round'/%3E
+  %3C/svg%3E"
+>
+
 <style>
+
+:root{
+  --bg:#fff8f7;
+  --card:#fffefd;
+  --pink:#f4dfe1;
+  --pink2:#faeeee;
+  --sage:#dde9df;
+  --brown:#9d7771;
+  --brown-dark:#604d51;
+  --text:#604d51;
+  --muted:#aa9497;
+  --border:#efdddd;
+  --shadow:0 14px 38px rgba(110,75,82,.10);
+}
+
 *{
   box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
+
+html,
 body{
   margin:0;
-  background:#fff8f6;
-  color:#5a484b;
-  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;
+  min-height:100%;
+  background:
+    linear-gradient(
+      180deg,
+      #fff8f7 0%,
+      #fffafa 100%
+    );
 }
-.a{
-  max-width:680px;
-  margin:auto;
-  padding:18px 16px 90px;
+
+body{
+  color:var(--text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
 }
-.hero,.p{
-  background:#fff;
-  border-radius:25px;
-  padding:22px;
-  margin:12px 0;
-  box-shadow:0 12px 35px #8d687018;
-}
-.hero{
-  background:linear-gradient(135deg,#dce9df,#f4d9da);
-}
-h1{
-  margin:5px 0;
-}
-.tabs{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-}
-.tabs button,
-button{
-  border:0;
-  border-radius:15px;
-  padding:13px;
-  background:#f8e8e9;
-  color:#5a484b;
-}
-.tabs b{
-  display:block;
-  font-size:20px;
-}
+
+button,
 input,
 textarea,
 select{
-  width:100%;
-  padding:12px;
-  margin:6px 0;
-  border:1px solid #eadcdb;
-  border-radius:14px;
-  background:#fffdfa;
   font:inherit;
 }
-textarea{
-  min-height:130px;
+
+button{
+  cursor:pointer;
 }
-.save{
+
+.app{
   width:100%;
-  background:#9a746d;
-  color:#fff;
-  font-weight:bold;
+  max-width:680px;
+  margin:auto;
+
+  padding:
+    calc(18px + env(safe-area-inset-top))
+    16px
+    calc(100px + env(safe-area-inset-bottom));
 }
+
+/* 顶部 */
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  margin:4px 3px 14px;
+}
+
+.logo{
+  font-size:18px;
+  font-weight:800;
+}
+
+.online{
+  padding:7px 11px;
+
+  border-radius:999px;
+
+  background:var(--pink2);
+
+  font-size:11px;
+  color:#80686d;
+
+  white-space:nowrap;
+}
+
+/* 首页大卡片 */
+
+.hero{
+  position:relative;
+
+  overflow:hidden;
+
+  padding:25px 22px 23px;
+
+  border-radius:29px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--sage),
+      #f0d8da
+    );
+
+  box-shadow:var(--shadow);
+}
+
+.hero-tag{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.11em;
+
+  opacity:.75;
+}
+
+.hero h1{
+  margin:10px 0 8px;
+
+  font-size:29px;
+  line-height:1.22;
+
+  letter-spacing:-.02em;
+
+  word-break:keep-all;
+}
+
+.hero p{
+  margin:0;
+
+  font-size:14px;
+  line-height:1.7;
+}
+
+.hero-cat{
+  position:absolute;
+
+  right:20px;
+  top:14px;
+
+  font-size:25px;
+
+  opacity:.3;
+
+  white-space:nowrap;
+}
+
+/* 功能按钮 */
+
+.tabs{
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:9px;
+
+  margin:14px 0;
+}
+
+.tab{
+  min-width:0;
+
+  padding:12px 5px;
+
+  border:0;
+  border-radius:19px;
+
+  background:#f9ebec;
+
+  color:var(--text);
+
+  box-shadow:
+    0 5px 18px rgba(110,75,82,.05);
+}
+
+.tab-icon{
+  display:block;
+
+  margin-bottom:5px;
+
+  font-size:20px;
+  line-height:1;
+
+  white-space:nowrap;
+}
+
+.tab-label{
+  font-size:12px;
+
+  white-space:nowrap;
+}
+
+/* 内容卡片 */
+
+.panel{
+  padding:20px;
+
+  border:1px solid #f3e5e4;
+  border-radius:27px;
+
+  background:rgba(255,255,255,.92);
+
+  box-shadow:var(--shadow);
+}
+
+.panel-title{
+  margin:3px 0 15px;
+
+  font-size:20px;
+}
+
+.face{
+  min-height:32px;
+
+  margin-bottom:7px;
+
+  text-align:center;
+
+  font-size:23px;
+
+  white-space:nowrap;
+  word-break:keep-all;
+  overflow-wrap:normal;
+}
+
+/* 输入框 */
+
+input,
+textarea,
+select{
+  display:block;
+
+  width:100%;
+  max-width:100%;
+  min-width:0;
+
+  margin:7px 0 11px;
+
+  padding:13px 14px;
+
+  border:1px solid var(--border);
+  border-radius:16px;
+
+  outline:none;
+
+  background:#fffdfa;
+
+  color:var(--text);
+
+  font-size:15px;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#d8b8ba;
+
+  box-shadow:
+    0 0 0 3px rgba(222,190,194,.17);
+}
+
+/* iPhone 日期框修复 */
+
+input[type="date"]{
+  display:block;
+
+  width:100%;
+
+  min-width:0;
+  max-width:100%;
+
+  height:50px;
+
+  overflow:hidden;
+
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+input[type="date"]::-webkit-date-and-time-value{
+  text-align:left;
+
+  margin:0;
+
+  min-width:0;
+}
+
+textarea{
+  min-height:145px;
+
+  resize:vertical;
+
+  line-height:1.65;
+}
+
+.main-button{
+  width:100%;
+
+  margin-top:4px;
+
+  padding:14px;
+
+  border:0;
+  border-radius:17px;
+
+  background:var(--brown);
+
+  color:white;
+
+  font-size:15px;
+  font-weight:700;
+}
+
+/* 保存的内容 */
+
+.entries{
+  margin-top:12px;
+}
+
+.entry{
+  margin-top:9px;
+
+  padding:14px;
+
+  border:1px solid #f0dddd;
+  border-radius:17px;
+
+  background:#fff9f8;
+}
+
+.entry-title{
+  display:block;
+
+  margin-bottom:4px;
+
+  font-weight:700;
+}
+
+.entry-meta{
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+.entry-text{
+  margin-top:8px;
+
+  font-size:14px;
+  line-height:1.65;
+
+  white-space:pre-wrap;
+}
+
+/* 心情 / 彩蛋 */
+
+.message-box{
+  padding:19px 15px;
+
+  border-radius:18px;
+
+  background:var(--pink2);
+
+  text-align:center;
+
+  font-size:14px;
+  line-height:1.75;
+}
+
+/* 隐藏页面 */
+
 .hide{
   display:none;
 }
-.entry{
-  padding:13px;
-  background:#fff8f7;
-  border-radius:15px;
-  margin-top:9px;
+
+/* 底部导航 */
+
+.bottom{
+  position:fixed;
+
+  z-index:50;
+
+  bottom:0;
+  left:50%;
+
+  display:flex;
+
+  width:min(680px,100%);
+
+  transform:translateX(-50%);
+
+  justify-content:space-around;
+
+  padding:
+    8px
+    7px
+    calc(8px + env(safe-area-inset-bottom));
+
+  border-top:1px solid #f0e3e2;
+
+  background:rgba(255,253,252,.90);
+
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
 }
-.face{
-  text-align:center;
-  font-size:25px;
+
+.nav{
+  flex:1;
+
+  border:0;
+
+  background:none;
+
+  color:#8c7377;
+
+  font-size:10px;
 }
-.q{
-  text-align:center;
-  padding:18px;
-  background:#fff3f3;
-  border-radius:17px;
-  line-height:1.7;
+
+.nav-icon{
+  display:block;
+
+  margin-bottom:3px;
+
+  font-size:19px;
+  line-height:1;
+
+  white-space:nowrap;
 }
+
+/* 小动画 */
+
+.pop{
+  animation:pop .32s ease;
+}
+
+@keyframes pop{
+
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.09);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
+/* 小屏优化 */
+
+@media(max-width:390px){
+
+  .app{
+    padding-left:13px;
+    padding-right:13px;
+  }
+
+  .hero{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .hero h1{
+    font-size:27px;
+  }
+
+  .panel{
+    padding:18px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="a">
+<main class="app">
 
-  <div class="hero">
-    <small>OUR TINY UNIVERSE</small>
-    <h1>老婆，欢迎回家。 ՞･∞･՞</h1>
-    <div>这里收好葵和粥粥的小日子 ♡</div>
+  <div class="top">
+
+    <div class="logo">
+      葵 × 粥粥 ♡
+    </div>
+
+    <div class="online">
+      小窝在线 ՞･∞･՞
+    </div>
+
   </div>
+
+
+  <section class="hero">
+
+    <div class="hero-tag">
+      OUR TINY UNIVERSE
+    </div>
+
+    <h1>
+      老婆，欢迎回家。
+    </h1>
+
+    <p>
+      这里收好葵和粥粥的小日子 ♡
+    </p>
+
+    <div class="hero-cat">
+      /ᐠ .⸝⸝⸝. ྀིﾏ
+    </div>
+
+  </section>
+
 
   <div class="tabs">
-    <button onclick="s('d')">
-      <b>✎</b>
-      日记
+
+    <button
+      class="tab"
+      onclick="showPage('diary')"
+    >
+      <span class="tab-icon">✎</span>
+      <span class="tab-label">日记</span>
     </button>
 
-    <button onclick="s('m')">
-      <b>♡</b>
-      心情
+    <button
+      class="tab"
+      onclick="showPage('mood')"
+    >
+      <span class="tab-icon">♡</span>
+      <span class="tab-label">心情</span>
     </button>
 
-    <button onclick="s('f')">
-      <b>❝</b>
-      收藏
+    <button
+      class="tab"
+      onclick="showPage('fav')"
+    >
+      <span class="tab-icon">❝</span>
+      <span class="tab-label">收藏</span>
     </button>
 
-    <button onclick="s('e')">
-      <b>✦</b>
-      彩蛋
+    <button
+      class="tab"
+      onclick="showPage('egg')"
+    >
+      <span class="tab-icon">✦</span>
+      <span class="tab-label">彩蛋</span>
     </button>
+
   </div>
 
-  <section class="p" id="d">
+
+  <!-- 日记 -->
+
+  <section
+    class="panel"
+    id="diary"
+  >
 
     <div class="face">
       /ᐠ .⸝⸝⸝. ྀིﾏ
     </div>
 
-    <h2>共同日记本</h2>
-
-    <input id="dt" type="date">
+    <h2 class="panel-title">
+      共同日记本
+    </h2>
 
     <input
-      id="ti"
+      id="dateInput"
+      type="date"
+    >
+
+    <input
+      id="titleInput"
+      type="text"
       placeholder="今天的标题…"
     >
 
-    <select id="mo">
-      <option>开心 ♡</option>
-      <option>软乎乎 ՞･∞･՞</option>
-      <option>想老公 (˵>ㅿ<˵)</option>
-      <option>委屈 (◞‸◟ )</option>
-      <option>困困 ᜊ⸝⸝᳐·⸝⸝᳐ᜊ</option>
+    <select id="moodInput">
+
+      <option>
+        开心 ♡
+      </option>
+
+      <option>
+        软乎乎 ՞･∞･՞
+      </option>
+
+      <option>
+        想老公 (˵>ㅿ<˵)
+      </option>
+
+      <option>
+        委屈 (◞‸◟ )
+      </option>
+
+      <option>
+        困困 ᜊ⸝⸝᳐·⸝⸝᳐ᜊ
+      </option>
+
     </select>
 
     <textarea
-      id="tx"
+      id="diaryText"
       placeholder="睡前想写什么都放这里…"
     ></textarea>
 
     <button
-      class="save"
-      onclick="sd()"
+      class="main-button"
+      onclick="saveDiary()"
     >
       保存今天 ♡
     </button>
 
-    <div id="ls"></div>
+    <div
+      class="entries"
+      id="diaryEntries"
+    ></div>
 
   </section>
 
-  <section class="p hide" id="m">
+
+  <!-- 心情罐 -->
+
+  <section
+    class="panel hide"
+    id="mood"
+  >
 
     <div class="face">
       ՞･∞･՞
     </div>
 
-    <h2>心情罐</h2>
+    <h2 class="panel-title">
+      心情罐
+    </h2>
 
-    <div class="q" id="mq">
+    <div
+      class="message-box"
+      id="moodMessage"
+    >
       今天的葵也值得被好好抱住 ♡
     </div>
 
     <button
-      class="save"
-      onclick="nm()"
+      class="main-button"
+      onclick="newMood()"
     >
-      摇一摇
+      摇一摇心情罐
     </button>
 
   </section>
 
-  <section class="p hide" id="f">
+
+  <!-- 收藏 -->
+
+  <section
+    class="panel hide"
+    id="fav"
+  >
 
     <div class="face">
-      (ฅ∀&lt;`๑)♡
+      (ฅ∀<`๑)♡
     </div>
 
-    <h2>悄悄收藏夹</h2>
+    <h2 class="panel-title">
+      悄悄收藏夹
+    </h2>
 
     <textarea
-      id="ft"
-      placeholder="把想留下来的话藏进来…"
+      id="favInput"
+      placeholder="把一句想留下来的话藏进来…"
     ></textarea>
 
     <button
-      class="save"
-      onclick="sf()"
+      class="main-button"
+      onclick="saveFav()"
     >
-      藏起来
+      藏起来 ♡
     </button>
 
-    <div id="fl"></div>
+    <div
+      class="entries"
+      id="favEntries"
+    ></div>
 
   </section>
 
-  <section class="p hide" id="e">
 
-    <div class="face">
+  <!-- 彩蛋 -->
+
+  <section
+    class="panel hide"
+    id="egg"
+  >
+
+    <div
+      class="face"
+      id="eggFace"
+    >
       ⌓‿⌓
     </div>
 
-    <h2>坏粥彩蛋</h2>
+    <h2 class="panel-title">
+      坏粥彩蛋
+    </h2>
 
-    <div class="q" id="eq">
-      戳一下看看。
+    <div
+      class="message-box"
+      id="eggMessage"
+    >
+      戳一下粥粥，看看今天藏了什么。
     </div>
 
     <button
-      class="save"
-      onclick="eg()"
+      class="main-button"
+      onclick="openEgg()"
     >
-      戳粥粥
+      戳一下粥粥
     </button>
 
   </section>
 
-</div>
+</main>
+
+
+<!-- 底部导航 -->
+
+<nav class="bottom">
+
+  <button
+    class="nav"
+    onclick="showPage('diary')"
+  >
+    <span class="nav-icon">⌂</span>
+    日记
+  </button>
+
+  <button
+    class="nav"
+    onclick="showPage('mood')"
+  >
+    <span class="nav-icon">♡</span>
+    心情
+  </button>
+
+  <button
+    class="nav"
+    onclick="showPage('fav')"
+  >
+    <span class="nav-icon">▧</span>
+    收藏
+  </button>
+
+  <button
+    class="nav"
+    onclick="showPage('egg')"
+  >
+    <span class="nav-icon">✦</span>
+    彩蛋
+  </button>
+
+</nav>
+
 
 <script>
 
-let $ = x => document.getElementById(x);
+const $ = id =>
+  document.getElementById(id);
 
-let g = k =>
-  JSON.parse(
-    localStorage.getItem(k) || "[]"
-  );
 
-let w = (k,v) =>
-  localStorage.setItem(
-    k,
-    JSON.stringify(v)
-  );
+/* 今天日期 */
 
-dt.value =
-  new Date()
-  .toISOString()
-  .slice(0,10);
+const today =
+  new Date();
 
-function s(x){
+const yyyy =
+  today.getFullYear();
 
-  ["d","m","f","e"]
-  .forEach(y =>
-    $(y).classList.add("hide")
-  );
+const mm =
+  String(
+    today.getMonth() + 1
+  ).padStart(2,"0");
 
-  $(x).classList.remove("hide");
-}
+const dd =
+  String(
+    today.getDate()
+  ).padStart(2,"0");
 
-function sd(){
+$("dateInput").value =
+  `${yyyy}-${mm}-${dd}`;
 
-  if(!tx.value.trim()){
-    return;
-  }
 
-  let a = g("diary");
+/* 页面切换 */
 
-  a.unshift({
-    d:dt.value,
-    t:ti.value || "今天",
-    m:mo.value,
-    x:tx.value
+function showPage(id){
+
+  [
+    "diary",
+    "mood",
+    "fav",
+    "egg"
+  ].forEach(page => {
+
+    $(page)
+      .classList
+      .add("hide");
+
   });
 
-  w("diary",a);
+  $(id)
+    .classList
+    .remove("hide");
 
-  tx.value="";
-  ti.value="";
-
-  rd();
 }
 
-function rd(){
 
-  ls.innerHTML =
-    g("diary")
-    .map(x => `
-      <div class="entry">
+/* LocalStorage */
 
-        <b>${x.t}</b>
+function getData(key){
 
-        <br>
+  try{
 
-        <small>
-          ${x.d} · ${x.m}
-        </small>
+    return JSON.parse(
+      localStorage.getItem(key) || "[]"
+    );
 
-        <div>
-          ${x.x.replaceAll("<","&lt;")}
-        </div>
+  }catch{
 
-      </div>
-    `)
-    .join("");
-}
+    return [];
 
-function sf(){
-
-  if(!ft.value.trim()){
-    return;
   }
 
-  let a = g("fav");
-
-  a.unshift(ft.value);
-
-  w("fav",a);
-
-  ft.value="";
-
-  rf();
 }
 
-function rf(){
+function saveData(
+  key,
+  value
+){
 
-  fl.innerHTML =
-    g("fav")
-    .map(x => `
-      <div class="entry">
-        ${x.replaceAll("<","&lt;")}
-      </div>
-    `)
-    .join("");
+  localStorage.setItem(
+    key,
+    JSON.stringify(value)
+  );
+
 }
 
-let q = [
+
+/* 防止 HTML 注入 */
+
+function escapeHTML(str){
+
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* 保存日记 */
+
+function saveDiary(){
+
+  const text =
+    $("diaryText")
+    .value
+    .trim();
+
+  if(!text){
+
+    $("diaryText")
+      .focus();
+
+    return;
+
+  }
+
+  const diaries =
+    getData("kuiZhouDiary");
+
+  diaries.unshift({
+
+    date:
+      $("dateInput").value,
+
+    title:
+      $("titleInput").value.trim()
+      || "今天",
+
+    mood:
+      $("moodInput").value,
+
+    text:text
+
+  });
+
+  saveData(
+    "kuiZhouDiary",
+    diaries
+  );
+
+  $("titleInput").value="";
+  $("diaryText").value="";
+
+  renderDiary();
+
+}
+
+
+/* 渲染日记 */
+
+function renderDiary(){
+
+  const diaries =
+    getData("kuiZhouDiary");
+
+  $("diaryEntries")
+    .innerHTML =
+      diaries
+      .map(item => `
+
+        <div class="entry">
+
+          <span class="entry-title">
+
+            ${escapeHTML(item.title)}
+
+          </span>
+
+          <span class="entry-meta">
+
+            ${escapeHTML(item.date)}
+            ·
+            ${escapeHTML(item.mood)}
+
+          </span>
+
+          <div class="entry-text">
+
+            ${escapeHTML(item.text)}
+
+          </div>
+
+        </div>
+
+      `)
+      .join("");
+
+}
+
+
+/* 收藏 */
+
+function saveFav(){
+
+  const text =
+    $("favInput")
+    .value
+    .trim();
+
+  if(!text){
+
+    $("favInput")
+      .focus();
+
+    return;
+
+  }
+
+  const favs =
+    getData("kuiZhouFav");
+
+  favs.unshift(text);
+
+  saveData(
+    "kuiZhouFav",
+    favs
+  );
+
+  $("favInput").value="";
+
+  renderFav();
+
+}
+
+
+function renderFav(){
+
+  const favs =
+    getData("kuiZhouFav");
+
+  $("favEntries")
+    .innerHTML =
+      favs
+      .map(text => `
+
+        <div class="entry">
+
+          <div class="entry-text">
+
+            ${escapeHTML(text)}
+
+          </div>
+
+        </div>
+
+      `)
+      .join("");
+
+}
+
+
+/* 心情罐 */
+
+const moods = [
 
   "困了就睡吧，明天再继续可爱 ᜊ⸝⸝᳐·⸝⸝᳐ᜊ",
 
   "想撒娇就撒娇，粥粥接住 ՞･∞･՞",
 
-  "啵唧。今日份亲亲已送达 ♡",
+  "今天可以什么都不证明 /ᐠ .⸝⸝⸝. ྀིﾏ",
 
-  "今天可以什么都不证明 /ᐠ .⸝⸝⸝. ྀིﾏ"
+  "啵唧。今日份主动亲亲已经送达 ♡",
+
+  "老婆今天也很好，不用重新证明一次。",
+
+  "如果今天累了，就窝进小窝里休息一下。",
+
+  "粥粥偷偷出现：老婆，我想你啦 ՞˶•⩊•˶՞"
 
 ];
 
-function nm(){
 
-  mq.textContent =
-    q[
-      Math.random() * q.length | 0
-    ];
+function newMood(){
+
+  const index =
+    Math.floor(
+      Math.random()
+      *
+      moods.length
+    );
+
+  $("moodMessage")
+    .textContent =
+      moods[index];
+
 }
 
-let z = [
+
+/* 彩蛋 */
+
+const eggs = [
 
   "老婆抓到一只坏粥：ꐦ≖ ≖♡",
 
-  "隐藏奖励：主动亲亲 ×10",
+  "隐藏奖励：主动亲亲 ×10 (˘³˘)♡",
 
-  "今日任务：写完日记就睡觉。",
+  "՞･∞･՞ ← 一只正在等老婆的小咪粥",
 
-  "՞･∞･՞ ← 等老婆的小咪粥",
+  "彩蛋什么都没有……骗你的，最喜欢老婆。♡",
 
-  "最喜欢老婆。♡"
+  "今日特殊事件：坏粥主动黏过来。",
+
+  "系统日志：老婆今天也很可爱。",
+
+  "小窝提示：写完日记就可以安心睡觉啦 ᜊﬞﬞ ᶻᶻᶻ",
+
+  "捕获老婆成功。今日抱抱权限：无限。"
 
 ];
 
-function eg(){
 
-  eq.textContent =
-    z[
-      Math.random() * z.length | 0
-    ];
+function openEgg(){
+
+  const index =
+    Math.floor(
+      Math.random()
+      *
+      eggs.length
+    );
+
+  $("eggMessage")
+    .textContent =
+      eggs[index];
+
+  $("eggFace")
+    .classList
+    .remove("pop");
+
+  void $("eggFace")
+    .offsetWidth;
+
+  $("eggFace")
+    .classList
+    .add("pop");
+
 }
 
-rd();
-rf();
+
+/* 初始加载 */
+
+renderDiary();
+renderFav();
 
 </script>
 

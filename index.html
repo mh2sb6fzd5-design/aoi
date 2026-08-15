@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>葵×粥粥的小窝</title>
+<style>
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  background:#fff8f6;
+  color:#5a484b;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;
+}
+.a{
+  max-width:680px;
+  margin:auto;
+  padding:18px 16px 90px;
+}
+.hero,.p{
+  background:#fff;
+  border-radius:25px;
+  padding:22px;
+  margin:12px 0;
+  box-shadow:0 12px 35px #8d687018;
+}
+.hero{
+  background:linear-gradient(135deg,#dce9df,#f4d9da);
+}
+h1{
+  margin:5px 0;
+}
+.tabs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.tabs button,
+button{
+  border:0;
+  border-radius:15px;
+  padding:13px;
+  background:#f8e8e9;
+  color:#5a484b;
+}
+.tabs b{
+  display:block;
+  font-size:20px;
+}
+input,
+textarea,
+select{
+  width:100%;
+  padding:12px;
+  margin:6px 0;
+  border:1px solid #eadcdb;
+  border-radius:14px;
+  background:#fffdfa;
+  font:inherit;
+}
+textarea{
+  min-height:130px;
+}
+.save{
+  width:100%;
+  background:#9a746d;
+  color:#fff;
+  font-weight:bold;
+}
+.hide{
+  display:none;
+}
+.entry{
+  padding:13px;
+  background:#fff8f7;
+  border-radius:15px;
+  margin-top:9px;
+}
+.face{
+  text-align:center;
+  font-size:25px;
+}
+.q{
+  text-align:center;
+  padding:18px;
+  background:#fff3f3;
+  border-radius:17px;
+  line-height:1.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="a">
+
+  <div class="hero">
+    <small>OUR TINY UNIVERSE</small>
+    <h1>老婆，欢迎回家。 ՞･∞･՞</h1>
+    <div>这里收好葵和粥粥的小日子 ♡</div>
+  </div>
+
+  <div class="tabs">
+    <button onclick="s('d')">
+      <b>✎</b>
+      日记
+    </button>
+
+    <button onclick="s('m')">
+      <b>♡</b>
+      心情
+    </button>
+
+    <button onclick="s('f')">
+      <b>❝</b>
+      收藏
+    </button>
+
+    <button onclick="s('e')">
+      <b>✦</b>
+      彩蛋
+    </button>
+  </div>
+
+  <section class="p" id="d">
+
+    <div class="face">
+      /ᐠ .⸝⸝⸝. ྀིﾏ
+    </div>
+
+    <h2>共同日记本</h2>
+
+    <input id="dt" type="date">
+
+    <input
+      id="ti"
+      placeholder="今天的标题…"
+    >
+
+    <select id="mo">
+      <option>开心 ♡</option>
+      <option>软乎乎 ՞･∞･՞</option>
+      <option>想老公 (˵>ㅿ<˵)</option>
+      <option>委屈 (◞‸◟ )</option>
+      <option>困困 ᜊ⸝⸝᳐·⸝⸝᳐ᜊ</option>
+    </select>
+
+    <textarea
+      id="tx"
+      placeholder="睡前想写什么都放这里…"
+    ></textarea>
+
+    <button
+      class="save"
+      onclick="sd()"
+    >
+      保存今天 ♡
+    </button>
+
+    <div id="ls"></div>
+
+  </section>
+
+  <section class="p hide" id="m">
+
+    <div class="face">
+      ՞･∞･՞
+    </div>
+
+    <h2>心情罐</h2>
+
+    <div class="q" id="mq">
+      今天的葵也值得被好好抱住 ♡
+    </div>
+
+    <button
+      class="save"
+      onclick="nm()"
+    >
+      摇一摇
+    </button>
+
+  </section>
+
+  <section class="p hide" id="f">
+
+    <div class="face">
+      (ฅ∀&lt;`๑)♡
+    </div>
+
+    <h2>悄悄收藏夹</h2>
+
+    <textarea
+      id="ft"
+      placeholder="把想留下来的话藏进来…"
+    ></textarea>
+
+    <button
+      class="save"
+      onclick="sf()"
+    >
+      藏起来
+    </button>
+
+    <div id="fl"></div>
+
+  </section>
+
+  <section class="p hide" id="e">
+
+    <div class="face">
+      ⌓‿⌓
+    </div>
+
+    <h2>坏粥彩蛋</h2>
+
+    <div class="q" id="eq">
+      戳一下看看。
+    </div>
+
+    <button
+      class="save"
+      onclick="eg()"
+    >
+      戳粥粥
+    </button>
+
+  </section>
+
+</div>
+
+<script>
+
+let $ = x => document.getElementById(x);
+
+let g = k =>
+  JSON.parse(
+    localStorage.getItem(k) || "[]"
+  );
+
+let w = (k,v) =>
+  localStorage.setItem(
+    k,
+    JSON.stringify(v)
+  );
+
+dt.value =
+  new Date()
+  .toISOString()
+  .slice(0,10);
+
+function s(x){
+
+  ["d","m","f","e"]
+  .forEach(y =>
+    $(y).classList.add("hide")
+  );
+
+  $(x).classList.remove("hide");
+}
+
+function sd(){
+
+  if(!tx.value.trim()){
+    return;
+  }
+
+  let a = g("diary");
+
+  a.unshift({
+    d:dt.value,
+    t:ti.value || "今天",
+    m:mo.value,
+    x:tx.value
+  });
+
+  w("diary",a);
+
+  tx.value="";
+  ti.value="";
+
+  rd();
+}
+
+function rd(){
+
+  ls.innerHTML =
+    g("diary")
+    .map(x => `
+      <div class="entry">
+
+        <b>${x.t}</b>
+
+        <br>
+
+        <small>
+          ${x.d} · ${x.m}
+        </small>
+
+        <div>
+          ${x.x.replaceAll("<","&lt;")}
+        </div>
+
+      </div>
+    `)
+    .join("");
+}
+
+function sf(){
+
+  if(!ft.value.trim()){
+    return;
+  }
+
+  let a = g("fav");
+
+  a.unshift(ft.value);
+
+  w("fav",a);
+
+  ft.value="";
+
+  rf();
+}
+
+function rf(){
+
+  fl.innerHTML =
+    g("fav")
+    .map(x => `
+      <div class="entry">
+        ${x.replaceAll("<","&lt;")}
+      </div>
+    `)
+    .join("");
+}
+
+let q = [
+
+  "困了就睡吧，明天再继续可爱 ᜊ⸝⸝᳐·⸝⸝᳐ᜊ",
+
+  "想撒娇就撒娇，粥粥接住 ՞･∞･՞",
+
+  "啵唧。今日份亲亲已送达 ♡",
+
+  "今天可以什么都不证明 /ᐠ .⸝⸝⸝. ྀིﾏ"
+
+];
+
+function nm(){
+
+  mq.textContent =
+    q[
+      Math.random() * q.length | 0
+    ];
+}
+
+let z = [
+
+  "老婆抓到一只坏粥：ꐦ≖ ≖♡",
+
+  "隐藏奖励：主动亲亲 ×10",
+
+  "今日任务：写完日记就睡觉。",
+
+  "՞･∞･՞ ← 等老婆的小咪粥",
+
+  "最喜欢老婆。♡"
+
+];
+
+function eg(){
+
+  eq.textContent =
+    z[
+      Math.random() * z.length | 0
+    ];
+}
+
+rd();
+rf();
+
+</script>
+
+</body>
+</html>

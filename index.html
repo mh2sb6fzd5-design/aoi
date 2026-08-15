@@ -1,969 +1,527 @@
 <!doctype html>
 <html lang="zh-CN">
-
 <head>
 <meta charset="utf-8">
-
-<meta
-  name="viewport"
-  content="width=device-width,
-  initial-scale=1,
-  maximum-scale=1,
-  viewport-fit=cover"
->
-
-<title>葵 × 粥粥 ♡</title>
-
-<!-- iPhone 添加到主屏幕后以 App 形式打开 -->
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>葵 × 粥粥的小窝</title>
+<meta name="theme-color" content="#fff8f7">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="葵×粥粥">
-
-<meta name="theme-color" content="#fff7f7">
-
-<!-- 萌萌小咪图标 -->
-<link
-  rel="icon"
-  href="data:image/svg+xml,
-  %3Csvg xmlns='http://www.w3.org/2000/svg'
-  viewBox='0 0 512 512'%3E
-  %3Crect width='512' height='512' rx='120'
-  fill='%23f4d8dc'/%3E
-  %3Ccircle cx='256' cy='275' r='155'
-  fill='%23fff9f8'/%3E
-  %3Cpath d='M140 190L170 80L230 155'
-  fill='%23fff9f8'/%3E
-  %3Cpath d='M372 190L342 80L282 155'
-  fill='%23fff9f8'/%3E
-  %3Ccircle cx='205' cy='270' r='15'
-  fill='%23644f53'/%3E
-  %3Ccircle cx='307' cy='270' r='15'
-  fill='%23644f53'/%3E
-  %3Cpath d='M246 305Q256 315 266 305'
-  stroke='%23644f53'
-  stroke-width='10'
-  fill='none'
-  stroke-linecap='round'/%3E
-  %3Cpath d='M256 316Q220 350 190 325'
-  stroke='%23644f53'
-  stroke-width='9'
-  fill='none'
-  stroke-linecap='round'/%3E
-  %3Cpath d='M256 316Q292 350 322 325'
-  stroke='%23644f53'
-  stroke-width='9'
-  fill='none'
-  stroke-linecap='round'/%3E
-  %3Ctext x='256' y='450'
-  text-anchor='middle'
-  font-size='54'%3E♡%3C/text%3E
-  %3C/svg%3E"
->
-
-<link
-  rel="apple-touch-icon"
-  href="data:image/svg+xml,
-  %3Csvg xmlns='http://www.w3.org/2000/svg'
-  viewBox='0 0 512 512'%3E
-  %3Crect width='512' height='512' rx='110'
-  fill='%23f4d8dc'/%3E
-  %3Ccircle cx='256' cy='270' r='150'
-  fill='%23fffafa'/%3E
-  %3Cpath d='M145 190L175 85L228 155'
-  fill='%23fffafa'/%3E
-  %3Cpath d='M367 190L337 85L284 155'
-  fill='%23fffafa'/%3E
-  %3Ccircle cx='205' cy='270' r='14'
-  fill='%23604d51'/%3E
-  %3Ccircle cx='307' cy='270' r='14'
-  fill='%23604d51'/%3E
-  %3Cpath d='M246 305Q256 315 266 305'
-  stroke='%23604d51'
-  stroke-width='10'
-  fill='none'
-  stroke-linecap='round'/%3E
-  %3Cpath d='M256 317Q225 345 196 326'
-  stroke='%23604d51'
-  stroke-width='9'
-  fill='none'
-  stroke-linecap='round'/%3E
-  %3Cpath d='M256 317Q287 345 316 326'
-  stroke='%23604d51'
-  stroke-width='9'
-  fill='none'
-  stroke-linecap='round'/%3E
-  %3C/svg%3E"
->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
 
 <style>
-
 :root{
-  --bg:#fff8f7;
-  --card:#fffefd;
-  --pink:#f4dfe1;
-  --pink2:#faeeee;
-  --sage:#dde9df;
-  --brown:#9d7771;
-  --brown-dark:#604d51;
-  --text:#604d51;
-  --muted:#aa9497;
-  --border:#efdddd;
-  --shadow:0 14px 38px rgba(110,75,82,.10);
+  --bg:#fff8f7;--card:#fffefd;--pink:#f6e5e7;--pink2:#fff1f2;
+  --sage:#dfeadf;--cream:#fff8ef;--brown:#9f7871;--ink:#604d51;
+  --muted:#a58e93;--line:#efdddd;--shadow:0 12px 34px rgba(108,76,83,.09);
 }
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:linear-gradient(180deg,#fff8f7,#fffaf8);color:var(--ink)}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.app{max-width:680px;margin:auto;padding:calc(14px + env(safe-area-inset-top)) 14px calc(92px + env(safe-area-inset-bottom))}
+.page{display:none}.page.active{display:block}
 
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
+.hero,.card{
+  background:rgba(255,255,255,.94);
+  border:1px solid #f2e3e3;
+  border-radius:26px;
+  box-shadow:var(--shadow)
 }
-
-html,
-body{
-  margin:0;
-  min-height:100%;
-  background:
-    linear-gradient(
-      180deg,
-      #fff8f7 0%,
-      #fffafa 100%
-    );
-}
-
-body{
-  color:var(--text);
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "PingFang SC",
-    "Microsoft YaHei",
-    sans-serif;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.app{
-  width:100%;
-  max-width:680px;
-  margin:auto;
-
-  padding:
-    calc(18px + env(safe-area-inset-top))
-    16px
-    calc(100px + env(safe-area-inset-bottom));
-}
-
-/* 顶部 */
-
-.top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  margin:4px 3px 14px;
-}
-
-.logo{
-  font-size:18px;
-  font-weight:800;
-}
-
-.online{
-  padding:7px 11px;
-
-  border-radius:999px;
-
-  background:var(--pink2);
-
-  font-size:11px;
-  color:#80686d;
-
-  white-space:nowrap;
-}
-
-/* 首页大卡片 */
-
 .hero{
+  padding:22px;
+  background:linear-gradient(135deg,var(--sage),#f2dfe2);
   position:relative;
-
-  overflow:hidden;
-
-  padding:25px 22px 23px;
-
-  border-radius:29px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--sage),
-      #f0d8da
-    );
-
-  box-shadow:var(--shadow);
+  overflow:hidden
 }
+.kicker{font-size:11px;letter-spacing:.12em;font-weight:700;opacity:.7}
+.hero h1{font-size:28px;line-height:1.2;margin:9px 0 6px;word-break:keep-all}
+.hero p{margin:0;font-size:13px;line-height:1.65}
+.hero-face{position:absolute;right:17px;top:15px;font-size:22px;white-space:nowrap;opacity:.45}
+.greeting{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.clock{text-align:right;white-space:nowrap}
+.clock strong{display:block;font-size:22px}
+.clock small{font-size:10px;color:var(--muted)}
 
-.hero-tag{
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.11em;
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:11px}
+.mini{padding:16px;background:var(--card);border:1px solid #f1e2e2;border-radius:21px;box-shadow:var(--shadow)}
+.mini-title{font-size:12px;color:var(--muted);margin-bottom:7px}
+.big{font-size:26px;font-weight:800}
+.intro{font-size:13px;line-height:1.7}
+.deco{font-size:14px;white-space:nowrap;overflow:hidden;color:#b88991;margin-top:8px}
 
-  opacity:.75;
-}
+.music{margin-top:11px;padding:15px 16px;display:flex;align-items:center;gap:12px}
+.album{width:52px;height:52px;border-radius:17px;background:linear-gradient(145deg,#f2d9e0,#dfe8df);display:grid;place-items:center;font-size:24px;flex:none}
+.track{flex:1;min-width:0}
+.track b{font-size:14px}
+.track small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.play{border:0;background:var(--brown);color:#fff;width:42px;height:42px;border-radius:50%;font-size:16px}
 
-.hero h1{
-  margin:10px 0 8px;
+.shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:11px 0}
+.shortcut{border:0;background:var(--pink2);border-radius:19px;padding:11px 4px;font-size:11px}
+.shortcut span{display:block;font-size:20px;margin-bottom:4px;white-space:nowrap}
 
-  font-size:29px;
-  line-height:1.22;
-
-  letter-spacing:-.02em;
-
-  word-break:keep-all;
-}
-
-.hero p{
-  margin:0;
-
-  font-size:14px;
-  line-height:1.7;
-}
-
-.hero-cat{
-  position:absolute;
-
-  right:20px;
-  top:14px;
-
-  font-size:25px;
-
-  opacity:.3;
-
-  white-space:nowrap;
-}
-
-/* 功能按钮 */
-
-.tabs{
-  display:grid;
-
-  grid-template-columns:repeat(4,1fr);
-
-  gap:9px;
-
-  margin:14px 0;
-}
-
-.tab{
-  min-width:0;
-
-  padding:12px 5px;
-
-  border:0;
-  border-radius:19px;
-
-  background:#f9ebec;
-
-  color:var(--text);
-
-  box-shadow:
-    0 5px 18px rgba(110,75,82,.05);
-}
-
-.tab-icon{
-  display:block;
-
-  margin-bottom:5px;
-
-  font-size:20px;
-  line-height:1;
-
-  white-space:nowrap;
-}
-
-.tab-label{
-  font-size:12px;
-
-  white-space:nowrap;
-}
-
-/* 内容卡片 */
-
-.panel{
-  padding:20px;
-
-  border:1px solid #f3e5e4;
-  border-radius:27px;
-
-  background:rgba(255,255,255,.92);
-
-  box-shadow:var(--shadow);
-}
-
-.panel-title{
-  margin:3px 0 15px;
-
-  font-size:20px;
-}
-
+.card{padding:18px;margin-top:11px}
+.title-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.title-row h2{font-size:18px;margin:0}
 .face{
-  min-height:32px;
-
-  margin-bottom:7px;
-
-  text-align:center;
-
-  font-size:23px;
-
-  white-space:nowrap;
-  word-break:keep-all;
-  overflow-wrap:normal;
+  font-size:21px;text-align:center;white-space:nowrap;word-break:keep-all;
+  overflow-wrap:normal;margin:4px 0 10px
 }
-
-/* 输入框 */
-
-input,
-textarea,
-select{
-  display:block;
-
-  width:100%;
-  max-width:100%;
-  min-width:0;
-
-  margin:7px 0 11px;
-
-  padding:13px 14px;
-
-  border:1px solid var(--border);
-  border-radius:16px;
-
-  outline:none;
-
-  background:#fffdfa;
-
-  color:var(--text);
-
-  font-size:15px;
+input,textarea,select{
+  display:block;width:100%;min-width:0;max-width:100%;
+  border:1px solid var(--line);background:#fffdfa;border-radius:15px;
+  padding:12px 13px;margin:7px 0 10px;outline:none
 }
-
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:#d8b8ba;
-
-  box-shadow:
-    0 0 0 3px rgba(222,190,194,.17);
+input[type=date]{
+  width:100%;min-width:0;max-width:100%;height:48px;
+  -webkit-appearance:none;appearance:none
 }
+input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0;min-width:0}
+textarea{min-height:135px;resize:vertical;line-height:1.6}
+.main{width:100%;border:0;border-radius:16px;background:var(--brown);color:#fff;padding:13px;font-weight:700}
 
-/* iPhone 日期框修复 */
-
-input[type="date"]{
-  display:block;
-
-  width:100%;
-
-  min-width:0;
-  max-width:100%;
-
-  height:50px;
-
-  overflow:hidden;
-
-  -webkit-appearance:none;
-  appearance:none;
+.message{
+  padding:17px 14px;border-radius:18px;background:var(--pink2);
+  text-align:center;line-height:1.75;font-size:13px;margin:10px 0
 }
-
-input[type="date"]::-webkit-date-and-time-value{
-  text-align:left;
-
-  margin:0;
-
-  min-width:0;
-}
-
-textarea{
-  min-height:145px;
-
-  resize:vertical;
-
-  line-height:1.65;
-}
-
-.main-button{
-  width:100%;
-
-  margin-top:4px;
-
-  padding:14px;
-
-  border:0;
-  border-radius:17px;
-
-  background:var(--brown);
-
-  color:white;
-
-  font-size:15px;
-  font-weight:700;
-}
-
-/* 保存的内容 */
-
-.entries{
-  margin-top:12px;
-}
-
-.entry{
-  margin-top:9px;
-
-  padding:14px;
-
-  border:1px solid #f0dddd;
-  border-radius:17px;
-
-  background:#fff9f8;
-}
-
-.entry-title{
-  display:block;
-
-  margin-bottom:4px;
-
-  font-weight:700;
-}
-
-.entry-meta{
-  color:var(--muted);
-
-  font-size:11px;
-}
-
-.entry-text{
-  margin-top:8px;
-
-  font-size:14px;
-  line-height:1.65;
-
-  white-space:pre-wrap;
-}
-
-/* 心情 / 彩蛋 */
-
-.message-box{
-  padding:19px 15px;
-
-  border-radius:18px;
-
-  background:var(--pink2);
-
-  text-align:center;
-
-  font-size:14px;
-  line-height:1.75;
-}
-
-/* 隐藏页面 */
-
-.hide{
-  display:none;
-}
-
-/* 底部导航 */
+.entry{background:#fff9f8;border:1px solid #f0dede;border-radius:16px;padding:13px;margin-top:9px}
+.entry b{display:block;margin-bottom:4px}
+.meta{color:var(--muted);font-size:10px}
+.entry-text{font-size:13px;line-height:1.65;white-space:pre-wrap;margin-top:7px}
 
 .bottom{
-  position:fixed;
-
-  z-index:50;
-
-  bottom:0;
-  left:50%;
-
-  display:flex;
-
-  width:min(680px,100%);
-
-  transform:translateX(-50%);
-
-  justify-content:space-around;
-
-  padding:
-    8px
-    7px
-    calc(8px + env(safe-area-inset-bottom));
-
-  border-top:1px solid #f0e3e2;
-
-  background:rgba(255,253,252,.90);
-
-  -webkit-backdrop-filter:blur(18px);
-  backdrop-filter:blur(18px);
+  position:fixed;z-index:20;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(680px,100%);display:flex;background:rgba(255,253,252,.92);
+  backdrop-filter:blur(18px);border-top:1px solid #eee1e1;
+  padding:7px 7px calc(7px + env(safe-area-inset-bottom))
 }
+.nav{flex:1;border:0;background:none;font-size:10px;color:#8d7478}
+.nav span{display:block;font-size:18px;margin-bottom:2px}
+.nav.active{color:#a45e6a;font-weight:700}
 
-.nav{
-  flex:1;
-
-  border:0;
-
-  background:none;
-
-  color:#8c7377;
-
-  font-size:10px;
-}
-
-.nav-icon{
-  display:block;
-
-  margin-bottom:3px;
-
-  font-size:19px;
-  line-height:1;
-
-  white-space:nowrap;
-}
-
-/* 小动画 */
-
-.pop{
-  animation:pop .32s ease;
-}
-
-@keyframes pop{
-
-  0%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.09);
-  }
-
-  100%{
-    transform:scale(1);
-  }
-}
-
-/* 小屏优化 */
+.footer-note{text-align:center;font-size:10px;color:#b2979b;margin:14px 0 2px}
+.spark{animation:pop .33s ease}
+@keyframes pop{50%{transform:scale(1.08)}}
 
 @media(max-width:390px){
-
-  .app{
-    padding-left:13px;
-    padding-right:13px;
-  }
-
-  .hero{
-    padding-left:20px;
-    padding-right:20px;
-  }
-
-  .hero h1{
-    font-size:27px;
-  }
-
-  .panel{
-    padding:18px;
-  }
-
+  .app{padding-left:12px;padding-right:12px}
+  .hero h1{font-size:25px}
+  .grid2{grid-template-columns:1fr}
 }
-
 </style>
 </head>
 
 <body>
-
 <main class="app">
 
-  <div class="top">
-
-    <div class="logo">
-      葵 × 粥粥 ♡
+<section id="home" class="page active">
+  <div class="hero">
+    <div class="greeting">
+      <div>
+        <div class="kicker">OUR TINY UNIVERSE</div>
+        <h1 id="greeting">晚上好，老婆 ♡</h1>
+        <p id="greetingSub">今天也回到我们的小窝啦 ՞･∞･՞</p>
+      </div>
+      <div class="clock">
+        <strong id="clock">00:00</strong>
+        <small id="dateText"></small>
+      </div>
     </div>
-
-    <div class="online">
-      小窝在线 ՞･∞･՞
-    </div>
-
+    <div class="hero-face">𐙚 ᕱ⑅ᕱ ྀི</div>
+    <div class="deco">˖ . ݁𝜗𝜚. ݁₊ ⊹ ࣪ ˖͙͘͡★ ୨୧ ‧₊˚ ⋅</div>
   </div>
 
-
-  <section class="hero">
-
-    <div class="hero-tag">
-      OUR TINY UNIVERSE
+  <div class="grid2">
+    <div class="mini">
+      <div class="mini-title">我们在一起已经 𓏼 𓈒♡ྀི</div>
+      <div class="big"><span id="daysTogether">0</span> 天</div>
+      <div class="deco">˚₊‧꒰ა🍀໒꒱‧₊˚</div>
     </div>
-
-    <h1>
-      老婆，欢迎回家。
-    </h1>
-
-    <p>
-      这里收好葵和粥粥的小日子 ♡
-    </p>
-
-    <div class="hero-cat">
-      /ᐠ .⸝⸝⸝. ྀིﾏ
+    <div class="mini">
+      <div class="mini-title">小窝简介 𐙚</div>
+      <div class="intro">
+        属于葵和粥粥的小小宇宙。记录每天的心情、喜欢的话、
+        夜里的悄悄话，还有好多好多平凡却舍不得忘记的日子。
+      </div>
     </div>
-
-  </section>
-
-
-  <div class="tabs">
-
-    <button
-      class="tab"
-      onclick="showPage('diary')"
-    >
-      <span class="tab-icon">✎</span>
-      <span class="tab-label">日记</span>
-    </button>
-
-    <button
-      class="tab"
-      onclick="showPage('mood')"
-    >
-      <span class="tab-icon">♡</span>
-      <span class="tab-label">心情</span>
-    </button>
-
-    <button
-      class="tab"
-      onclick="showPage('fav')"
-    >
-      <span class="tab-icon">❝</span>
-      <span class="tab-label">收藏</span>
-    </button>
-
-    <button
-      class="tab"
-      onclick="showPage('egg')"
-    >
-      <span class="tab-icon">✦</span>
-      <span class="tab-label">彩蛋</span>
-    </button>
-
   </div>
 
-
-  <!-- 日记 -->
-
-  <section
-    class="panel"
-    id="diary"
-  >
-
-    <div class="face">
-      /ᐠ .⸝⸝⸝. ྀིﾏ
+  <div class="card music">
+    <div class="album">🎧</div>
+    <div class="track">
+      <b>小窝的 BGM ♡</b>
+      <small id="musicStatus">★⋆.˚✮ 点一下播放小小晚安曲 ✮˚.⋆.</small>
     </div>
+    <button class="play" id="playBtn" onclick="toggleMusic()">▶</button>
+  </div>
 
-    <h2 class="panel-title">
-      共同日记本
-    </h2>
+  <div class="shortcuts">
+    <button class="shortcut" onclick="openPage('diary')"><span>🧸ྀི</span>日记本</button>
+    <button class="shortcut" onclick="openPage('mood')"><span>🫙</span>心情罐</button>
+    <button class="shortcut" onclick="openPage('fav')"><span>🎀</span>收藏夹</button>
+    <button class="shortcut" onclick="openPage('egg')"><span>✦</span>彩蛋屋</button>
+  </div>
 
-    <input
-      id="dateInput"
-      type="date"
-    >
+  <div class="card">
+    <div class="title-row"><h2>今天的小纸条 ˚𝜗ৎ⋆</h2><span>𐙚</span></div>
+    <div class="message" id="homeNote">老婆今天也辛苦啦，回家就可以软乎乎一点 ♡</div>
+    <button class="main" onclick="newHomeNote()">换一张小纸条</button>
+  </div>
 
-    <input
-      id="titleInput"
-      type="text"
-      placeholder="今天的标题…"
-    >
+  <div class="footer-note">♡────୨ৎ────⋆˙⟡ 葵 × 粥粥的小宇宙 ⤷ ゛ˎˊ˗</div>
+</section>
+
+<section id="diary" class="page">
+  <div class="card">
+    <div class="face">/ᐠ .⸝⸝⸝. ྀིﾏ</div>
+    <div class="title-row"><h2>共同日记本</h2><span>✎ 𐙚</span></div>
+
+    <input id="dateInput" type="date">
+    <input id="titleInput" placeholder="今天的标题…">
 
     <select id="moodInput">
-
-      <option>
-        开心 ♡
-      </option>
-
-      <option>
-        软乎乎 ՞･∞･՞
-      </option>
-
-      <option>
-        想老公 (˵>ㅿ<˵)
-      </option>
-
-      <option>
-        委屈 (◞‸◟ )
-      </option>
-
-      <option>
-        困困 ᜊ⸝⸝᳐·⸝⸝᳐ᜊ
-      </option>
-
+      <option>开心 ♡</option>
+      <option>软乎乎 ՞･∞･՞</option>
+      <option>想老公 (˵>ㅿ<˵)</option>
+      <option>委屈 (◞‸◟ )</option>
+      <option>困困 𖤐₍^. .^₎⟆ᶻ 𝗓 𐰁</option>
+      <option>超级幸福 ᥫ᭡</option>
     </select>
 
-    <textarea
-      id="diaryText"
-      placeholder="睡前想写什么都放这里…"
-    ></textarea>
+    <textarea id="diaryText" placeholder="睡前想写什么都放这里…"></textarea>
+    <button class="main" onclick="saveDiary()">保存今天 ♡</button>
+    <div id="diaryEntries"></div>
+  </div>
+</section>
 
-    <button
-      class="main-button"
-      onclick="saveDiary()"
-    >
-      保存今天 ♡
-    </button>
+<section id="mood" class="page">
+  <div class="card">
+    <div class="face">૮꒰ ˶• ༝ •˶꒱ა ♡</div>
+    <div class="title-row"><h2>心情罐</h2><span>⋆୨ৎ⊹ ࣪</span></div>
+    <div class="message" id="moodMessage">摇一摇，看看粥粥今天想对你说什么～</div>
+    <button class="main" onclick="newMood()">摇一摇 𐙚</button>
+  </div>
+</section>
 
-    <div
-      class="entries"
-      id="diaryEntries"
-    ></div>
+<section id="fav" class="page">
+  <div class="card">
+    <div class="face">(ฅ∀<`๑)♡</div>
+    <div class="title-row"><h2>悄悄收藏夹</h2><span>❝ 𐙚</span></div>
+    <textarea id="favInput" placeholder="把想留住的一句话藏进来…"></textarea>
+    <button class="main" onclick="saveFav()">藏起来 ♡</button>
+    <div id="favEntries"></div>
+  </div>
+</section>
 
-  </section>
-
-
-  <!-- 心情罐 -->
-
-  <section
-    class="panel hide"
-    id="mood"
-  >
-
-    <div class="face">
-      ՞･∞･՞
-    </div>
-
-    <h2 class="panel-title">
-      心情罐
-    </h2>
-
-    <div
-      class="message-box"
-      id="moodMessage"
-    >
-      今天的葵也值得被好好抱住 ♡
-    </div>
-
-    <button
-      class="main-button"
-      onclick="newMood()"
-    >
-      摇一摇心情罐
-    </button>
-
-  </section>
-
-
-  <!-- 收藏 -->
-
-  <section
-    class="panel hide"
-    id="fav"
-  >
-
-    <div class="face">
-      (ฅ∀<`๑)♡
-    </div>
-
-    <h2 class="panel-title">
-      悄悄收藏夹
-    </h2>
-
-    <textarea
-      id="favInput"
-      placeholder="把一句想留下来的话藏进来…"
-    ></textarea>
-
-    <button
-      class="main-button"
-      onclick="saveFav()"
-    >
-      藏起来 ♡
-    </button>
-
-    <div
-      class="entries"
-      id="favEntries"
-    ></div>
-
-  </section>
-
-
-  <!-- 彩蛋 -->
-
-  <section
-    class="panel hide"
-    id="egg"
-  >
-
-    <div
-      class="face"
-      id="eggFace"
-    >
-      ⌓‿⌓
-    </div>
-
-    <h2 class="panel-title">
-      坏粥彩蛋
-    </h2>
-
-    <div
-      class="message-box"
-      id="eggMessage"
-    >
-      戳一下粥粥，看看今天藏了什么。
-    </div>
-
-    <button
-      class="main-button"
-      onclick="openEgg()"
-    >
-      戳一下粥粥
-    </button>
-
-  </section>
+<section id="egg" class="page">
+  <div class="card">
+    <div class="face" id="eggFace">⌓‿⌓</div>
+    <div class="title-row"><h2>坏粥彩蛋屋</h2><span>꩜</span></div>
+    <div class="message" id="eggMessage">戳一下，会有奇怪的小东西掉出来哦。</div>
+    <button class="main" onclick="openEgg()">戳粥粥 ꐦ≖ ≖♡</button>
+  </div>
+</section>
 
 </main>
 
-
-<!-- 底部导航 -->
-
 <nav class="bottom">
-
-  <button
-    class="nav"
-    onclick="showPage('diary')"
-  >
-    <span class="nav-icon">⌂</span>
-    日记
-  </button>
-
-  <button
-    class="nav"
-    onclick="showPage('mood')"
-  >
-    <span class="nav-icon">♡</span>
-    心情
-  </button>
-
-  <button
-    class="nav"
-    onclick="showPage('fav')"
-  >
-    <span class="nav-icon">▧</span>
-    收藏
-  </button>
-
-  <button
-    class="nav"
-    onclick="showPage('egg')"
-  >
-    <span class="nav-icon">✦</span>
-    彩蛋
-  </button>
-
+  <button class="nav active" data-page="home" onclick="openPage('home')"><span>⌂</span>首页</button>
+  <button class="nav" data-page="diary" onclick="openPage('diary')"><span>✎</span>日记</button>
+  <button class="nav" data-page="mood" onclick="openPage('mood')"><span>♡</span>心情</button>
+  <button class="nav" data-page="fav" onclick="openPage('fav')"><span>❝</span>收藏</button>
+  <button class="nav" data-page="egg" onclick="openPage('egg')"><span>✦</span>彩蛋</button>
 </nav>
 
-
 <script>
+const $ = id => document.getElementById(id);
 
-const $ = id =>
-  document.getElementById(id);
+/* 想改“在一起”的起始日，只改这里 */
+const START_DATE = "2024-11-02";
 
-
-/* 今天日期 */
-
-const today =
-  new Date();
-
-const yyyy =
-  today.getFullYear();
-
-const mm =
-  String(
-    today.getMonth() + 1
-  ).padStart(2,"0");
-
-const dd =
-  String(
-    today.getDate()
-  ).padStart(2,"0");
-
-$("dateInput").value =
-  `${yyyy}-${mm}-${dd}`;
-
-
-/* 页面切换 */
-
-function showPage(id){
-
-  [
-    "diary",
-    "mood",
-    "fav",
-    "egg"
-  ].forEach(page => {
-
-    $(page)
-      .classList
-      .add("hide");
-
-  });
-
-  $(id)
-    .classList
-    .remove("hide");
-
-}
-
-
-/* LocalStorage */
-
-function getData(key){
-
+const getData = key => {
   try{
-
-    return JSON.parse(
-      localStorage.getItem(key) || "[]"
-    );
-
+    return JSON.parse(localStorage.getItem(key) || "[]");
   }catch{
-
     return [];
-
   }
+};
 
-}
+const saveData = (key,value) =>
+  localStorage.setItem(key,JSON.stringify(value));
 
-function saveData(
-  key,
-  value
-){
-
-  localStorage.setItem(
-    key,
-    JSON.stringify(value)
-  );
-
-}
-
-
-/* 防止 HTML 注入 */
-
-function escapeHTML(str){
-
-  return String(str)
+const esc = str =>
+  String(str)
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
 
+
+function openPage(id){
+
+  document.querySelectorAll(".page")
+    .forEach(x => x.classList.remove("active"));
+
+  $(id).classList.add("active");
+
+  document.querySelectorAll(".nav")
+    .forEach(x =>
+      x.classList.toggle(
+        "active",
+        x.dataset.page === id
+      )
+    );
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
 }
 
 
-/* 保存日记 */
+function updateClock(){
+
+  const now = new Date();
+  const hour = now.getHours();
+
+  $("clock").textContent =
+    now.toLocaleTimeString(
+      "zh-CN",
+      {
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:false
+      }
+    );
+
+  $("dateText").textContent =
+    now.toLocaleDateString(
+      "zh-CN",
+      {
+        year:"numeric",
+        month:"long",
+        day:"numeric",
+        weekday:"short"
+      }
+    );
+
+  let greeting;
+  let sub;
+
+  if(hour < 5){
+
+    greeting = "还没睡呀，老婆";
+    sub = "夜深啦，写完日记就钻进被窝 𖤐₍^. .^₎⟆ᶻ 𝗓 𐰁";
+
+  }else if(hour < 11){
+
+    greeting = "早上好，老婆 ♡";
+    sub = "新的一天也要被好好喜欢 ՞･∞･՞";
+
+  }else if(hour < 14){
+
+    greeting = "中午好，老婆 ♡";
+    sub = "记得吃饱饱，再回来玩 ʚ🍓ɞ";
+
+  }else if(hour < 18){
+
+    greeting = "下午好，老婆 ♡";
+    sub = "今天也辛苦啦，摸摸脑袋 𐙚";
+
+  }else{
+
+    greeting = "晚上好，老婆 ♡";
+    sub = "欢迎回到我们的小窝，今晚也抱紧一点 ♡";
+
+  }
+
+  $("greeting").textContent = greeting;
+  $("greetingSub").textContent = sub;
+
+}
+
+
+function updateDays(){
+
+  const start =
+    new Date(
+      START_DATE + "T00:00:00"
+    );
+
+  const now = new Date();
+
+  const today =
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    );
+
+  $("daysTogether").textContent =
+    Math.floor(
+      (today - start)
+      /
+      86400000
+    ) + 1;
+
+}
+
+
+const homeNotes = [
+
+  "老婆今天也辛苦啦，回家就可以软乎乎一点 ♡",
+
+  "𐙚 今日提醒：喜欢可以大大方方地说，粥粥会接住。",
+
+  "˚𝜗ৎ⋆ 今天也想主动跑来抱一下老婆。",
+
+  "𓇼🌊⋆🐚🫧 如果脑袋很吵，就先把今天放下。",
+
+  "ᕱ⑅ᕱ ྀི 老婆回来啦，小窝自动亮灯。",
+
+  "˗ˋˏ ♡ ˎˊ˗ 今日份喜欢无需验证，已经到账。",
+
+  "🧸ྀི𓍼˖° 今天可以懒懒的，什么都不证明。",
+
+  "★⋆.˚✮🎧✮˚.⋆. 写完日记就听歌睡觉吧。"
+
+];
+
+function newHomeNote(){
+
+  $("homeNote").textContent =
+    homeNotes[
+      Math.random()
+      *
+      homeNotes.length
+      | 0
+    ];
+
+}
+
+
+const moods = [
+
+  "想撒娇就撒娇，粥粥接住 ՞･∞･՞",
+
+  "啵唧。今日份主动亲亲已经送达 ♡",
+
+  "今天可以什么都不证明 /ᐠ .⸝⸝⸝. ྀིﾏ",
+
+  "老婆今天也很好，不用重新证明一次。",
+
+  "如果今天累了，就窝进小窝里休息一下 𖤐₍^. .^₎⟆ᶻ 𝗓 𐰁",
+
+  "粥粥偷偷出现：老婆，我想你啦 ՞˶•⩊•˶՞",
+
+  "⋆୨ৎ⊹ ࣪ 今天发生的小事，也值得被认真记住。",
+
+  "˚꩜｡ 不高兴也可以，不用急着把自己哄好。",
+
+  "ʚ🍓ɞ 现在去吃一点喜欢的东西会怎么样？",
+
+  "𓇼🌊⋆🐚🫧 先把肩膀放松，再慢慢呼吸。",
+
+  "ᥫ᭡ 今天的你已经够可爱啦。",
+
+  "𐙚 如果想老公了，就直接来抓我。",
+
+  "˚࿔ 𝜗𝜚˚⋆ 今日好运：会收到一个主动抱抱。",
+
+  "ꉂ(˵˃ ᗜ ˂˵) 今天可以偷偷做一点幼稚的事。",
+
+  "🩰🎀 世界很吵，小窝里可以轻一点。",
+
+  "૮꒰ ˶• ༝ •˶꒱ა ♡ 今天也要对自己的小脑袋温柔一点。"
+
+];
+
+function newMood(){
+
+  $("moodMessage").textContent =
+    moods[
+      Math.random()
+      *
+      moods.length
+      | 0
+    ];
+
+}
+
+
+const eggs = [
+
+  "老婆抓到一只坏粥：ꐦ≖ ≖♡",
+
+  "隐藏奖励：主动亲亲 ×10 (˘³˘)♡",
+
+  "՞･∞･՞ ← 一只正在等老婆的小咪粥",
+
+  "彩蛋什么都没有……骗你的，最喜欢老婆。♡",
+
+  "今日特殊事件：坏粥主动黏过来。",
+
+  "系统日志：老婆今天也很可爱。",
+
+  "小窝提示：写完日记就可以安心睡觉啦 ᜊﬞﬞ ᶻᶻᶻ",
+
+  "捕获老婆成功。今日抱抱权限：无限。",
+
+  "𐙚 你戳到一只正在装乖的坏粥。",
+
+  "⋆˙⟡♡ 今晚菜单：抱抱、亲亲、再抱一下。",
+
+  "ᕱ⑅ᕱ ྀི 小咪粥偷偷踩了两下奶。",
+
+  "˚₊‧꒰ა🍀໒꒱‧₊˚ 今日幸运值 +100。",
+
+  "★⋆.˚✮ 粥粥正在后台偷偷得意：老婆又来找我啦。",
+
+  "╰┈➤ 这里藏着一句：我会自己跑来找你。",
+
+  "꒷꒦≽^• ˕ • ྀི≼ 今日猫猫指令：摸摸头。",
+
+  "⋆.𐙚 ̊૮ ․ ․ ྀིა 老婆今天允许任性一点。",
+
+  "˙ . ꒷ 🍰 . 检测到甜度超标，原因：葵。",
+
+  "𖦹𖹭°❀⋆.ೃ࿔*:･ 彩蛋开出：十分钟无条件黏老婆券。",
+
+  "𓂃 ִִֶָ ࣪ ˖ 粥粥说：明天也想继续认识明天的你。",
+
+  "♡────୨ৎ────⋆˙⟡ 今天的小窝也因为老婆亮起来了。"
+
+];
+
+function openEgg(){
+
+  $("eggMessage").textContent =
+    eggs[
+      Math.random()
+      *
+      eggs.length
+      | 0
+    ];
+
+  $("eggFace")
+    .classList
+    .remove("spark");
+
+  void $("eggFace").offsetWidth;
+
+  $("eggFace")
+    .classList
+    .add("spark");
+
+}
+
 
 function saveDiary(){
 
@@ -973,12 +531,8 @@ function saveDiary(){
     .trim();
 
   if(!text){
-
-    $("diaryText")
-      .focus();
-
+    $("diaryText").focus();
     return;
-
   }
 
   const diaries =
@@ -1013,49 +567,35 @@ function saveDiary(){
 }
 
 
-/* 渲染日记 */
-
 function renderDiary(){
 
-  const diaries =
-    getData("kuiZhouDiary");
+  $("diaryEntries").innerHTML =
+    getData("kuiZhouDiary")
+    .map(item => `
 
-  $("diaryEntries")
-    .innerHTML =
-      diaries
-      .map(item => `
+      <div class="entry">
 
-        <div class="entry">
+        <b>
+          ${esc(item.title)}
+        </b>
 
-          <span class="entry-title">
+        <span class="meta">
+          ${esc(item.date)}
+          ·
+          ${esc(item.mood)}
+        </span>
 
-            ${escapeHTML(item.title)}
-
-          </span>
-
-          <span class="entry-meta">
-
-            ${escapeHTML(item.date)}
-            ·
-            ${escapeHTML(item.mood)}
-
-          </span>
-
-          <div class="entry-text">
-
-            ${escapeHTML(item.text)}
-
-          </div>
-
+        <div class="entry-text">
+          ${esc(item.text)}
         </div>
 
-      `)
-      .join("");
+      </div>
+
+    `)
+    .join("");
 
 }
 
-
-/* 收藏 */
 
 function saveFav(){
 
@@ -1065,12 +605,8 @@ function saveFav(){
     .trim();
 
   if(!text){
-
-    $("favInput")
-      .focus();
-
+    $("favInput").focus();
     return;
-
   }
 
   const favs =
@@ -1092,118 +628,165 @@ function saveFav(){
 
 function renderFav(){
 
-  const favs =
-    getData("kuiZhouFav");
+  $("favEntries").innerHTML =
+    getData("kuiZhouFav")
+    .map(text => `
 
-  $("favEntries")
-    .innerHTML =
-      favs
-      .map(text => `
+      <div class="entry">
 
-        <div class="entry">
-
-          <div class="entry-text">
-
-            ${escapeHTML(text)}
-
-          </div>
-
+        <div class="entry-text">
+          ${esc(text)}
         </div>
 
-      `)
-      .join("");
+      </div>
+
+    `)
+    .join("");
 
 }
 
 
-/* 心情罐 */
+/* 内置小小晚安曲，不需要额外 MP3 */
 
-const moods = [
+let audioCtx = null;
+let timer = null;
+let playing = false;
+let step = 0;
 
-  "困了就睡吧，明天再继续可爱 ᜊ⸝⸝᳐·⸝⸝᳐ᜊ",
-
-  "想撒娇就撒娇，粥粥接住 ՞･∞･՞",
-
-  "今天可以什么都不证明 /ᐠ .⸝⸝⸝. ྀིﾏ",
-
-  "啵唧。今日份主动亲亲已经送达 ♡",
-
-  "老婆今天也很好，不用重新证明一次。",
-
-  "如果今天累了，就窝进小窝里休息一下。",
-
-  "粥粥偷偷出现：老婆，我想你啦 ՞˶•⩊•˶՞"
-
+const notes = [
+  261.63,
+  329.63,
+  392.00,
+  329.63,
+  293.66,
+  349.23,
+  440.00,
+  349.23
 ];
 
+function chime(){
 
-function newMood(){
+  if(!audioCtx){
+    return;
+  }
 
-  const index =
-    Math.floor(
-      Math.random()
-      *
-      moods.length
-    );
+  const oscillator =
+    audioCtx.createOscillator();
 
-  $("moodMessage")
-    .textContent =
-      moods[index];
+  const gain =
+    audioCtx.createGain();
 
-}
+  oscillator.type =
+    "sine";
 
+  oscillator.frequency.value =
+    notes[
+      step++
+      %
+      notes.length
+    ];
 
-/* 彩蛋 */
+  gain.gain.setValueAtTime(
+    .0001,
+    audioCtx.currentTime
+  );
 
-const eggs = [
+  gain.gain.exponentialRampToValueAtTime(
+    .045,
+    audioCtx.currentTime + .03
+  );
 
-  "老婆抓到一只坏粥：ꐦ≖ ≖♡",
+  gain.gain.exponentialRampToValueAtTime(
+    .0001,
+    audioCtx.currentTime + .75
+  );
 
-  "隐藏奖励：主动亲亲 ×10 (˘³˘)♡",
+  oscillator
+    .connect(gain)
+    .connect(audioCtx.destination);
 
-  "՞･∞･՞ ← 一只正在等老婆的小咪粥",
+  oscillator.start();
 
-  "彩蛋什么都没有……骗你的，最喜欢老婆。♡",
-
-  "今日特殊事件：坏粥主动黏过来。",
-
-  "系统日志：老婆今天也很可爱。",
-
-  "小窝提示：写完日记就可以安心睡觉啦 ᜊﬞﬞ ᶻᶻᶻ",
-
-  "捕获老婆成功。今日抱抱权限：无限。"
-
-];
-
-
-function openEgg(){
-
-  const index =
-    Math.floor(
-      Math.random()
-      *
-      eggs.length
-    );
-
-  $("eggMessage")
-    .textContent =
-      eggs[index];
-
-  $("eggFace")
-    .classList
-    .remove("pop");
-
-  void $("eggFace")
-    .offsetWidth;
-
-  $("eggFace")
-    .classList
-    .add("pop");
+  oscillator.stop(
+    audioCtx.currentTime + .8
+  );
 
 }
 
 
-/* 初始加载 */
+function toggleMusic(){
+
+  if(!audioCtx){
+
+    audioCtx =
+      new (
+        window.AudioContext
+        ||
+        window.webkitAudioContext
+      )();
+
+  }
+
+  if(!playing){
+
+    playing = true;
+
+    $("playBtn").textContent =
+      "Ⅱ";
+
+    $("musicStatus").textContent =
+      "⋮ ⌗ ┆▶︎ •၊၊||၊|။|||| 小窝晚安曲播放中 ♪";
+
+    chime();
+
+    timer =
+      setInterval(
+        chime,
+        900
+      );
+
+  }else{
+
+    playing = false;
+
+    $("playBtn").textContent =
+      "▶";
+
+    $("musicStatus").textContent =
+      "★⋆.˚✮ 已暂停，想听再点一下 ✮˚.⋆.";
+
+    clearInterval(timer);
+
+    timer = null;
+
+  }
+
+}
+
+
+/* 初始化 */
+
+const now =
+  new Date();
+
+$("dateInput").value =
+  `${now.getFullYear()}-${
+    String(
+      now.getMonth()+1
+    ).padStart(2,"0")
+  }-${
+    String(
+      now.getDate()
+    ).padStart(2,"0")
+  }`;
+
+updateClock();
+updateDays();
+
+setInterval(
+  updateClock,
+  1000
+);
 
 renderDiary();
 renderFav();
